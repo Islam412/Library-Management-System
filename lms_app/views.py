@@ -4,7 +4,12 @@ from .models import *
 # Create your views here.
 
 def books(requset):
-    return render(requset,'pages/books.html')
+    context = {
+        'category' : Category.objects.all(),
+        'books' : Book.objects.all(),
+        
+    }
+    return render(requset,'pages/books.html', context)
 
 def delete(requset):
     return render(requset,'pages/delete.html')
