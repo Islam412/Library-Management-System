@@ -117,19 +117,13 @@
           <div class="row justify-content-center mb-3">
             <div class="col-4 ">
               <ul class="nav">
-            
-                <li class="nav-item ">
-                  <a id="" class="nav-link bg-primary" href="#">تاريخ</a>
-                </li>
-                <li class="nav-item ">
-                  <a id="" class="nav-link bg-primary" href="#">فن</a>
-                </li>
-                <li class="nav-item ">
-                  <a id="" class="nav-link bg-primary" href="#">ثقافة</a>
-                </li>
-                <li class="nav-item ">
-                  <a id="" class="nav-link bg-primary" href="#">رومانسية</a>
-                </li>
+            {% for cat in category %}
+              <li class="nav-item ">
+              <a id="" class="nav-link bg-primary" href="#">{{cat.name}}</a>
+              </li>
+            {% endfor %}
+
+
               </ul>
             </div>
           </div>
@@ -168,15 +162,21 @@
                 <div class="col-sm-4 border-right">
                   <div class="description-block">
                     <h5 class="description-header">{{book.pages}}</h5>
-                    <span class="description-text">صفحة</span>
+                    <span class="description-text">عدد الصفح</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
                     <!-- /.col -->
                 <div class="col-sm-4 border-right">
                   <div class="description-block">
+                  {% if book.price %}
                     <h5 class="description-header">${{book.price}}</h5>
                     <span class="description-text">السعر</span>
+                  {% elif book.retal_price_day %}
+                    <h5 class="description-header">${{book.retal_price_day}}</h5>
+                    <span class="description-text">ثمن ايجار اليوم</span>
+                  {% endif %}
+                    
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -185,13 +185,13 @@
                   <div class="description-block">
                     {% if book.status == "available" %}
                       <h5 class="description-header text-success">{{book.status}}</h5>
-                      <span class="description-text">حالة</span>
+                      <span class="description-text">الحالة</span>
                     {% elif book.status == "rented" %}
                       <h5 class="description-header text-warning">{{book.status}}</h5>
-                      <span class="description-text">حالة</span>
+                      <span class="description-text">الحالة</span>
                     {% else %}
                       <h5 class="description-header text-danger">{{book.status}}</h5>
-                      <span class="description-text">حالة</span>
+                      <span class="description-text">الحالة</span>
                     {% endif %}
                     
                   </div>

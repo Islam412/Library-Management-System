@@ -11,6 +11,7 @@ def delete(requset):
 
 def index(requset):
     context = {
+        'category' : Category.objects.all(),
         'books': Book.objects.all(),
     }
     return render(requset,'pages/index.html', context)
