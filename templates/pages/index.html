@@ -148,7 +148,16 @@ class          <div ="row justify-content-center mb-3">
               </div>
             </div>
 
+
+          {% if book.photo_book  %}
             <div style="background: url({{book.photo_book.url}}); background-size: cover;" class="widget-user-header bg-info">
+          {% else %}
+            <div class="widget-user-header bg-info">
+          {% endif %}
+
+
+
+
               <h3 class="widget-user-username">{{book.title}}</h3>
               <h5 class="widget-user-desc">{{book.author}}</h5>
             </div>
