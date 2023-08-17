@@ -31,6 +31,15 @@
 
 
 <!-- REQUIRED SCRIPTS -->
+<script>
+$("#catinput").hide()
+$("#addcat").click(function({
+  $("#catinput").show()
+}));
+$(#"backcat").click(function{
+  $("#catinput").hide()
+});
+</script>
 <script src="{% static 'plugins/jquery_datepacker/jquery_ui.js'%}"></script>
 
 <!-- jQuery -->

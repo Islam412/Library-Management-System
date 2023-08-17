@@ -24,7 +24,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a id="addcat" href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 New Books
@@ -48,13 +48,18 @@
                         <p  class="text-light"> Add New </p>
                     </a>
                   </li> 
-              <form id="cat" method="POST">
-             
-                  <input type="text" class="form-control">
-
-                  <button type="submit" class="btn btn-success">save</button>
-                  <button id="backcat" class="btn btn-primary ">back</button>
-              </form>  
+              
+                <form id="cat" method="POST">
+                <div id="catinput">
+                  {% csrf_token %}
+                  {{forms}}
+                    
+                    <button type="submit" class="btn btn-success">save</button>
+                    <button id="backcat" class="btn btn-primary ">back</button>
+                </div>
+                </form> 
+              
+               
             {% for cat in category %}
                   <li style="cursor: pointer;" class="nav-item">
                     <a id="" class="nav-link">
