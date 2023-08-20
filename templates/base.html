@@ -39,6 +39,19 @@ $("#addcat").click(function({
 $(#"backcat").click(function{
   $("#catinput").hide()
 });
+
+
+
+{% for book in mooks %}
+
+$(".cat{{book.category.id}}").click(function(){
+  $(".bookhide").hide()
+  $(".book{{book.category.id}}").show()
+})
+
+{% endfor %}
+
+
 </script>
 <script src="{% static 'plugins/jquery_datepacker/jquery_ui.js'%}"></script>
 
