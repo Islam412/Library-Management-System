@@ -1,7 +1,21 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from. forms import BookForm, CategoryForm
 from django.views.generic import DeleteView
+from django.urls import reverse
+from lms_app.models import YourModel  # Import your model
+from django.views import View
+
+
+
+
+class delete_Book(View):
+    def post(self, request, pk):
+        # Get the object to be deleted
+        obj = get_object_or_404(YourModel, pk=pk)
+        obj.delete()
+        return redirect('delete.html')  # Redirect to a success page
+
 # Create your views here.
 def books(requset):
     if requset.method == 'POST':

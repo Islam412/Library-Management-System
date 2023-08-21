@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+<a href="{% url 'delete_Book' object.pk %}">Delete</a>
 
 
 {% block content %}
@@ -15,8 +16,15 @@
       <!-- /.card-header -->
       <!-- form start -->
       
-      <form method="POST">
+      
       {% csrf_token %}
+      <h1>Delete {{ object }}</h1>
+      <form method="post">
+          {% csrf_token %}
+          <p>Are you sure you want to delete {{ object }}?</p>
+          <button type="submit">Delete</button>
+          <a href="{% url 'delete_Book' %}">Cancel</a>  <!-- Link to the list view or other page -->
+      </form>
         <div class="row">
           
        <p class="p-3">هل تريد حقاً حذف الكتاب؟</p>
