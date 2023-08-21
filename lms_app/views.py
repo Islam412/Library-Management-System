@@ -1,39 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import *
-from. forms import BookForm, CategoryForm
 from django.views.generic import DeleteView
-from django.urls import reverse
-from lms_app.models import YourModel  # Import your model
-from django.views import View
+from .models import *
+from .models import Book
+from. forms import *
 
 
 
-
-class delete_Book(View):
-    def post(self, request, pk):
-        # Get the object to be deleted
-        obj = get_object_or_404(YourModel, pk=pk)
-        obj.delete()
-        return redirect('delete.html')  # Redirect to a success page
 
 # Create your views here.
-def books(requset):
-    if requset.method == 'POST':
-        add_Category= CategoryForm(requset.POST)
-        if add_Category.is_valid():
-             add_Category.save()
-    
-    context = {
-        'category' : Category.objects.all(),
-        'books' : Book.objects.all(),
-        'category' : Category.objects.all(),
-        'forms' : CategoryForm(),
-    }
-    return render(requset,'pages/books.html', context)
-
-
-
-
 def index(requset):
     if requset.method == 'POST':
         add_Category= CategoryForm(requset.POST)
@@ -55,6 +29,23 @@ def index(requset):
 
 
 
+
+def books(requset):
+    if requset.method == 'POST':
+        add_Category= CategoryForm(requset.POST)
+        if add_Category.is_valid():
+             add_Category.save()
+    
+    context = {
+        'category' : Category.objects.all(),
+        'books' : Book.objects.all(),
+        'category' : Category.objects.all(),
+        'forms' : CategoryForm(),
+    }
+    return render(requset,'pages/books.html', context)
+
+
+
 def update(requset, id):
     book_id = Book.objects.get(id = id)
     if requset.method == 'POST':
@@ -71,8 +62,10 @@ def update(requset, id):
 
 
 
-class delete_Book(DeleteView):
-    model = Book
-    template_name = 'delete.html'
-    success_url ='/'
+def delete_book(request, id):
+        # Get the object to be deleted
+        obj = get_object_or_404(Book, pk=id)
+        obj.delete()
+        return redirect('index')  # Redirect to a success page
+
 
