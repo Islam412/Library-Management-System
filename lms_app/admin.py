@@ -5,3 +5,6 @@ from .models import *
 
 admin.site.register(Category)
 admin.site.register(Book)
+
+admin.site.site_header = 'NOUVIL'
+admin.site.site_title = 'NOUVIL'
