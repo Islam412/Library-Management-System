@@ -42,12 +42,12 @@ $(#"backcat").click(function{
 
 
 
-{% for book in mooks %}
+{% for book in books %}
 
 $(".cat{{book.category.id}}").click(function(){
   $(".bookhide").hide()
   $(".book{{book.category.id}}").show()
-})
+});
 
 {% endfor %}
 
