@@ -42,6 +42,18 @@
               <!-- /.card -->
             </div>
             <!-- /.col-md-6 -->
+            {% for book in books %}
+              {% if book.price != None %}
+                {% if book.status == 'sold' %}
+                  <p class="totalprice">{{book.price}}</p>
+                {% endif %}
+              {% endif %}
+              {% if total_render != None %}
+                {% if book.status == 'rented' %}
+                <p class="totalprice">{{book.total_render}}</p>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
             
             <div class="col-lg-6">
               <div class="card">

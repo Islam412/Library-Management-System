@@ -32,14 +32,39 @@
 
 <!-- REQUIRED SCRIPTS -->
 <script>
-$("#catinput").hide()
-$("#addcat").click(function({
-  $("#catinput").show()
-}));
-$(#"backcat").click(function{
-  $("#catinput").hide()
-
+$("#rentalday").keyup(function() {
+  var rentalDayValue = parseFloat($("#rentalday").val());
+  var rentalPriceValue = parseFloat($("#rentalprice").val());
+  
+  if (!isNaN(rentalDayValue) && !isNaN(rentalPriceValue)) {
+    $("#rentaltotal").val(rentalDayValue * rentalPriceValue);
+  }
 });
+
+$(document).ready(function() {
+  $('.totalprice').each(function() {
+    $(this).hide();
+  });
+});
+
+$("#addcat").click(function() {
+  $("#catinput").show();
+});
+
+$("#backcat").click(function() {
+  $("#catinput").hide();
+});
+
+
+$("#addcat").click(function() {
+  $("#catinput").show();
+});
+
+$("#backcat").click(function() {
+  $("#catinput").hide();
+});
+
+
 
 
 
@@ -181,7 +206,7 @@ $(function () {
     type: 'pie',
     data: {
       datasets: [{
-        data: ['{{bookavilable}}','{{booksold}}','{{bookrental}}'],
+        data: ['{{bookavailable}}','{{booksold}}','{{bookrented}}'],
         backgroundColor :["#27c100","#f3545d","#fdaf4b"],
         borderWidth: 10,
         
