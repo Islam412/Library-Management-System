@@ -38,6 +38,7 @@ $("#addcat").click(function({
 }));
 $(#"backcat").click(function{
   $("#catinput").hide()
+
 });
 
 
@@ -48,7 +49,10 @@ $(".cat{{book.category.id}}").click(function(){
   $(".bookhide").hide()
   $(".book{{book.category.id}}").show()
 });
-
+$(".status{{book.status}}").click(function(){
+  $(".bookhide").hide()
+  $(".book{{book.status}}").show()
+});
 {% endfor %}
 
 
