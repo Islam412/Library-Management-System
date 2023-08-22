@@ -49,8 +49,8 @@ def books(requset):
     
     context = {
         'category' : Category.objects.all(),
-        'books' : search,
-        'category' : Category.objects.all(),
+        'books': Book.objects.all(),
+        'form' : BookForm(),
         'forms' : CategoryForm(),
     }
     return render(requset,'pages/books.html', context)
