@@ -35,6 +35,13 @@ def index(requset):
 
 
 def books(requset):
+    search = Book.objects.all()
+    title = None
+    if 'search_name' in requset .GET:
+        title = requset.GET['search_name']
+        if title:
+            search = search.filter(title__icontains=title)
+
     if requset.method == 'POST':
         add_Category= CategoryForm(requset.POST)
         if add_Category.is_valid():
@@ -42,7 +49,7 @@ def books(requset):
     
     context = {
         'category' : Category.objects.all(),
-        'books' : Book.objects.all(),
+        'books' : search,
         'category' : Category.objects.all(),
         'forms' : CategoryForm(),
     }
