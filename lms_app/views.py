@@ -63,9 +63,16 @@ def update(requset, id):
 
 
 def delete_book(request, id):
-        # Get the object to be deleted
-        obj = get_object_or_404(Book, pk=id)
-        obj.delete()
-        return redirect('index')  # Redirect to a success page
+        book_delete = get_object_or_404(Book, id=id)
+        book_delete.delete()
+        return redirect('/')  # Redirect to a success page
 
 
+'''
+def delete_book(requset, id):
+        book_delete = get_object_or_404(Book, id = id)
+        if requset.method == 'POST':
+            book_delete.delete()
+            return redirect('/') 
+        return render(requset, 'pages/delete.html')
+'''

@@ -4,41 +4,39 @@
 {% block content %}
   
 <div style="direction: rtl;" class="wrapper">
-
-    <!-- Content Wrapper. Contains page content -->
-    <div   class="content-wrapper">
-      <!-- Content Header (Page header) -->
-  <div  class="card card-danger">
-      <div class="card-header">
-        <h3 class="card-title">حذف الكتاب</h3>
-      </div>
-      <!-- /.card-header -->
-      <!-- form start -->
-      
-      
-      {% csrf_token %}
-      <h1>Delete {{ object }}</h1>
-      <form method="post">
-          {% csrf_token %}
-          <p>Are you sure you want to delete {{ object }}?</p>
-          <button type="submit">Delete</button>
-          <a href="{% url 'delete_Book' %}">Cancel</a>  <!-- Link to the list view or other page -->
-      </form>
-        <div class="row">
-          
-       <p class="p-3">هل تريد حقاً حذف الكتاب؟</p>
-   
-        </div>
-        <!-- /.card-body -->
-  
-        <div class="card-footer">
-          <button type="submit" class="btn btn-danger">حذف</button>
-  
-          <button data-target="#" type="submit" class="btn btn-primary">تراجع</button>
-        </div>
-      </form>
+  <!-- Content Wrapper. Contains page content -->
+  <div   class="content-wrapper">
+    <!-- Content Header (Page header) -->
+<div  class="card card-danger">
+    <div class="card-header">
+      <h3 class="card-title">حذف الكتاب</h3>
     </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    {% csrf_token %}
+    <h1>Delete {{ object }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>Are you sure you want to delete {{ object }}?</p>
+        <button type="submit">Delete</button>
+        <a href="{% url 'delete' %}">Delete</a>
+      </form>
+    
+      <div class="row">
+        
+     <p class="p-3">هل تريد حقاً حذف الكتاب؟</p>
+ 
+      </div>
+      <!-- /.card-body -->
+
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary">حذف</button>
+
+        <a href="{% url 'index' %}" type="button" class="btn btn-success">تراجع</a>
+      </div>
+    </form>
   </div>
-  </div>
+</div>
+</div>
 
 {% endblock content %}
