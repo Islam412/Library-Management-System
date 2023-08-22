@@ -22,7 +22,11 @@ def index(requset):
         'category' : Category.objects.all(),
         'books': Book.objects.all(),
         'form' : BookForm(),
-        'forms' : CategoryForm()
+        'forms' : CategoryForm(),
+        'allbooks' : Book.objects.filter(active=True).count(),
+        'booksold' : Book.objects.filter(status='sold').count(),
+        'bookrental' : Book.objects.filter(status='rental').count(),
+        'bookavilable' : Book.objects.filter(status='availble').count(),
 
     }
     return render(requset,'pages/index.html', context)
