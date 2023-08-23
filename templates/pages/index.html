@@ -1,5 +1,5 @@
- {% extends "base.html" %}
-
+{% extends "base.html" %}
+{% load static %}
 {% block content %}
   <!-- في المكان ده هحط المحتوى -->
 
@@ -165,6 +165,7 @@ class          <div ="row justify-content-center mb-3">
             <div style="background: url({{book.photo_book.url}}); background-size: cover;" class="widget-user-header bg-info">
           {% else %}
             <div class="widget-user-header bg-info">
+            <img style="height: 120px; width: 120px;"  src="{% static 'dist/img/photo1.jpg' %}" alt="" class="img-circle img-fluid">
           {% endif %}
 
 
