@@ -1,4 +1,4 @@
-Library Management System (LMS)
+# Library Management System (LMS)
 
 A Library Management System to help manage books, users (members), and library operations in an organized way.
 This project provides a simple web-based interface for interacting with the library content and related workflows.
